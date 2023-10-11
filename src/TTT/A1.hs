@@ -4,48 +4,77 @@ import Data.Char (toUpper)
 
 -- Q#01
 
-_SIZE_ = undefined
+_SIZE_ = 3
 
 -- Q#02
 
-_DISPLAY_LOGO_ = undefined
+_DISPLAY_LOGO_ = True
 
 -- Q#03
 
-convertRowIndex = undefined
+convertRowIndex :: Char -> Int
+convertRowIndex row = fromEnum ( toUpper row ) - 65
+-- cleaner version
+-- convertRowIndex = subtract 65 . fromEnum . toUpper
 
 -- Q#04
 
-_INVALID_MOVE_ = undefined
+_INVALID_MOVE_ = (-1, -1)
 
 -- Q#05
 
-_SEP_ = undefined
+_SEP_ = "_|_"
 
 -- Q#06
 
-data Square
+data Square = X | O | E
+  deriving (Eq, Show)
 
 -- Q#07
 
-data GameState
+data GameState = Xwon | Owon | Tie | InProgress
+  deriving (Eq, Show)
 
 -- Q#08
 
+type Player = Square
+
+type Row = [Square]
+
+type Line = [Square]
+
+type Board = [Row]
+
+type Move = (Int, Int)
+
 -- Q#09
 
-getFirstPlayer = undefined
+getFirstPlayer :: Bool -> Player
+getFirstPlayer val = if val then X else O
 
-getFirstPlayer_ = undefined
+getFirstPlayer_ :: Bool -> Player
+getFirstPlayer_ val | val = X
+                    | otherwise = O
 
 -- Q#10
 
-showGameState = undefined
+showGameState :: GameState -> String
+showGameState state = case state of
+  Xwon -> "X won!"
+  Owon -> "O won!"
+  Tie -> "Tie!"
+  InProgress -> "In progress..."
 
 -- Q#11
 
-switchPlayer = undefined
+switchPlayer :: Player -> Player
+switchPlayer X = O
+switchPlayer O = X
+switchPlayer E = E
 
 -- Q#12
 
-showSquare = undefined
+showSquare :: Square -> String
+showSquare X = "X"
+showSquare O = "O"
+showSquare E = "_"
