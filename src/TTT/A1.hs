@@ -4,6 +4,7 @@ import Data.Char (toUpper)
 
 -- Q#01
 
+_SIZE_ :: Int
 _SIZE_ = 3
 
 -- Q#02
@@ -19,6 +20,7 @@ convertRowIndex row = fromEnum ( toUpper row ) - 65
 
 -- Q#04
 
+_INVALID_MOVE_ :: (Int, Int)
 _INVALID_MOVE_ = (-1, -1)
 
 -- Q#05
