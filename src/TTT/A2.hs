@@ -14,7 +14,6 @@ promptPlayer player =
     ]
 
 -- Q#02
-
 _RANGE_ = [0 .. _SIZE_ - 1]
 
 -- Q#03
@@ -55,7 +54,7 @@ indexRowStrings list = zip ['A' ..] list
 -- Q#07
 
 formatLine :: [String] -> String
-formatLine list = _SEP_ ++ intercalate _SEP_ list
+formatLine list = _SEP_ ++ intercalate _SEP_ list ++ _SEP_
 
 -- Q#08
 
